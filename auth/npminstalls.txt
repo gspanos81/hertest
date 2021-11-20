@@ -1,0 +1,7 @@
+npm install express 
+npm install --save-dev modemon
+npm install mongoose 
+npm install dotevn
+npm install @hapi/joi
+npm install bcryptjs
+npm install jsonwebtoken
