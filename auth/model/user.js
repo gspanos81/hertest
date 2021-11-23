@@ -50,6 +50,70 @@ const DoctorSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Doctor',DoctorSchema);
-module.exports = mongoose.model('User',UserSchema);
+const PersonalSchema = new mongoose.Schema ({
+    //_id : mongoose.Schema.Types.ObjectId,
+    amla : {
+           type : String,
+           min : 11,
+           max : 11,
+           required : true },
 
+    fname : {
+        type : String,
+        min : 3,
+        max : 20,
+        required : true },
+
+    lname : {type : String,
+           min : 3,
+           max : 20,
+           required : true },
+
+    BloodType : { 
+           type : String,
+           min : 11,
+           max : 11,
+           required : true }, 
+    
+    Perscriptinos : {
+          type : String, 
+          
+    },
+
+    PersonalDoc : {
+          name: { 
+            type : String,
+            min : 11,
+            max : 11,
+            required : true }, 
+
+           email : {
+            type : String,
+            min : 11,
+            max : 11,
+            required : true
+           }, 
+           
+           tel: {
+            type : String,
+            min : 11,
+            max : 11,
+            required : true
+           }
+    }
+
+});
+
+module.exports.DoctorSchema = mongoose.model('Doctor',DoctorSchema);
+module.exports.UserSchema = mongoose.model('User',UserSchema);
+module.exports.PersonalSchema = mongoose.model('PersonalSchema',PersonalSchema);
+/*
+module .exports = {
+    allUser:allUser, 
+    registerUser:registerUser,
+
+    checkInOut:checkInOut,
+    checkInInfo:checkInInfo
+}
+
+*/
