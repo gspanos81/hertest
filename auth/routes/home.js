@@ -1,17 +1,18 @@
 const router = require('express').Router();
 const verify = require('./verifyToken');
-const {PersonalInfo,UserSchema} = require('../model/User');
+const User = require('../model/User');
 
-router.get('/home',async (req,res) => {
 
-    const emailExist = await UserSchema.findOne({email: req.body.email});
-    if(!emailExist) return res.status(400).send("Email DOESNOT Exist Sorry");
+router.get('/home',verify,async(req,res) => {
+
+    const emailExist = await User.findOne({amka:req.body.amka});
     console.log(emailExist);
-    res.send({"message":"ouaou ","user": emailExist});
+    if(emailExist.length === 0) return res.status(400).send("Email DOESNOT Exist Sorry");
+    res.json({message: emailExist });
 
 });
 
-router.patch('/', (req,res,next) => {
+router.patch('/home',verify,async(req,res,next) => {
     //const name = req.params.UserID;
     const UpdateOps = {};
     for(const ops of req.body)
@@ -19,7 +20,7 @@ router.patch('/', (req,res,next) => {
         UpdateOps[ops.propName] = ops.value;
 
     }
-    UserSchema.update({$set:UpdateOps})
+    User.update({$set:UpdateOps})
     .exec()
     .then(result => {
         console.log(result);
