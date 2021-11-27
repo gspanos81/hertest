@@ -19,8 +19,8 @@ console.log('connected to the db '));
 //Middleware
 app.use(express.json());
 
-app.use('/api',homeRoute);
-app.use('/api/user',authRoute);
+app.use('/mydoctor',homeRoute);
+app.use('/mydoctor/user',authRoute);
 
 
 

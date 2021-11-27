@@ -5,10 +5,13 @@ const User = require('../model/User');
 
 router.get('/home',verify,async(req,res) => {
 
-    const emailExist = await User.findOne({amka:req.body.amka});
-    console.log(emailExist);
-    if(emailExist.length === 0) return res.status(400).send("Email DOESNOT Exist Sorry");
-    res.json({message: emailExist });
+    const amkaExist = await User.findOne({amka:req.body.amka});
+    console.log(amkaExist);
+    if(amkaExist.length === 0) return res.status(400).send("Amka Does Not Exist, Sorry");
+    //Ignore password from sending it to Front
+    var userObj = amkaExist.toObject();
+    delete userObj.password;
+    res.json({message: userObj });
 
 });
 
