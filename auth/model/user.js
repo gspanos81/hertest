@@ -1,4 +1,5 @@
-const { string } = require('@hapi/joi');
+const { string, date } = require('@hapi/joi');
+const { Int32, Double } = require('bson');
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
@@ -6,6 +7,7 @@ const UserSchema = new mongoose.Schema({
     amka : {
         type: String,
         required: true,
+        unique: true,
         min: 11,
         max: 11
     },
@@ -28,7 +30,7 @@ const UserSchema = new mongoose.Schema({
         min: 6
     },
     Birthday : {
-        type: String,
+        type: Date,
         required: true,
         },
     Blood_Type : {
@@ -42,12 +44,12 @@ const UserSchema = new mongoose.Schema({
         required: true,
         },
     kg : {
-        type : String,
+        type : Number,
         required : true
     },
     Height : {
         type : String,
-        required : true
+        required : false
     },
     Sex : {
         type : String,

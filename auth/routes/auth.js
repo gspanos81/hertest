@@ -14,7 +14,7 @@ router.post('/register', async (req,res) => {
 
   
   //chcek double mail 
-  const amkaExist = await User.findOne({email: req.body.amka});
+  const amkaExist = await User.findOne({amka: req.body.amka});
   if(amkaExist) return res.status(400).send("Amka Exist Sorry");
 
   //encrypt Users Password
@@ -69,7 +69,7 @@ router.post('/login',async (req,res) => {
     const token = jwt.sign({_id : UserLogin._id}, process.env.TOKEN_S);
     //res.header('auth-token',token).send(token);
 
-    res.send({ "message" : "Welcome back :" +token});
+    res.send({ "status": "Success Login","Token" : token});
 
    
 
