@@ -3,7 +3,7 @@ const verify = require('./verifyToken');
 const User = require('../model/User');
 
 
-router.get('/home',verify,async(req,res) => {
+router.get('/home',async(req,res) => {
 
     const amkaExist = await User.findOne({amka:req.body.amka});
     console.log(amkaExist);
