@@ -4,7 +4,7 @@
   "description": "auth app",
   "main": "app.js",
   "scripts": {
-    "test": "nodemon index.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
