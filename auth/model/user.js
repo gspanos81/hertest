@@ -35,17 +35,17 @@ const UserSchema = new mongoose.Schema({
         },
     Blood_Type : {
         type: String,
-        required: true,
+        required: false,
         max: 255, 
         min: 6
     },
     Photo :{
         type: String,
-        required: true,
+        required: false,
         },
     kg : {
         type : Number,
-        required : true
+        required : false
     },
     Height : {
         type : String,
@@ -67,7 +67,7 @@ const UserSchema = new mongoose.Schema({
         },
     City : {
         type : String,
-        required : true,
+        required : false,
         min : 3,
         max : 15
     },
