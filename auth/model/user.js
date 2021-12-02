@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema({
     },
     Birthday : {
         type: Date,
-        required: true,
+        required: false,
         },
     Blood_Type : {
         type: String,
