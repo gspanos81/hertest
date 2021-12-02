@@ -9,14 +9,14 @@ const registerValidation = data =>  {
       password : joi.string().min(6).required(),
       First_Name : joi.string().min(3).required(),
       Last_Name : joi.string().min(3).required(),
-      Birthday : joi.date(),
+      Birthday : joi.date().optional(),
       Blood_Type : joi.string().min(6).required(),
-      Photo : joi.string().min(6).required(),  
-      kg : joi.number().integer().required().positive(),
+      Photo : joi.string().min(6).optional(),  
+      kg : joi.number().integer().positive().optional(),
       Height : joi.number().optional(),
       Sex : joi.string().min(6).required(),
       Personal_Doctor : joi.string().min(6).required(),
-      City : joi.string().min(6).required()  
+      City : joi.string().min(6).optional()  
     });
 
     //validation 
