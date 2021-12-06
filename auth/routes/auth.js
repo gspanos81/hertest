@@ -5,6 +5,9 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 //const {UserSchema} = require('../model/User');
 const verify = require('./verifyToken');
+const Dates = require('../model/dates');
+const Doctor = require('../model/doctor');
+const Hospital = require('../model/hospital');
 
 router.post('/register', async (req,res) => {
   
@@ -42,7 +45,7 @@ router.post('/register', async (req,res) => {
         const savedUser = await user.save();
         //send to the frontend User id and the message
          //create TOKEN
-        const token = jwt.sign({_id : user._id}, process.env.TOKEN_S);
+        const token = jwt.sign({amka : user.amka}, process.env.TOKEN_S);
          //res.header('auth-token',token).send(token);
         //res.send({ "message" : "Welcome back :" +token});
 
@@ -66,7 +69,7 @@ router.post('/login',async (req,res) => {
     if(!validPass) return res.status(400).send("Invalid Password");
     
      //create TOKEN
-    const token = jwt.sign({_id : UserLogin._id}, process.env.TOKEN_S);
+    const token = jwt.sign({amka : UserLogin.amka}, process.env.TOKEN_S);
     //res.header('auth-token',token).send(token);
 
     res.send({ "status": "Success Login","Token" : token});

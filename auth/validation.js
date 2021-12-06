@@ -39,6 +39,18 @@ const loginValidation = data =>  {
   //if(error) return res.status(400).send(error.details[0].message);
 };
 
+const ChangePassValidation = data =>  {
 
+  const schema = joi.object({
+    new_password : joi.string().min(6).required()  
+  });
+
+  //validation 
+  return schema.validate(data);
+//const {error} = schema.validate(req.body);
+//if(error) return res.status(400).send(error.details[0].message);
+};
+
+module.exports.ChangePassValidation= ChangePassValidation;
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidation = loginValidation;

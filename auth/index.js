@@ -12,7 +12,7 @@ const authRoute = require('./routes/auth');
 
 const homeRoute = require('./routes/home');
 //connect to the db 
-mongoose.connect(process.env.DB_CONNECT1, () => 
+mongoose.connect(process.env.DB_CONNECT, () => 
 console.log('connected to the db '));
 
 
