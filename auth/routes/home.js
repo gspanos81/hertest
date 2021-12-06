@@ -59,7 +59,8 @@ router.patch('/home',verify,async (req,res) => {
     delete updates.password;
     delete updates.new_password;
     delete updates.old_password;
-    const result = await User.findByIdAndUpdate(Userid,updates);
+    const result = await User.findByIdAndUpdate(Userid,updates, {new: true});
+    console.log(result);
     var userObj = result.toObject();
     delete userObj.password;
     //res.json({message: userObj });
