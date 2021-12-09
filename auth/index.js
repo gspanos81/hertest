@@ -9,7 +9,7 @@ dotenv.config({path: './routes/.env'});
 //Import Routes
 
 const authRoute = require('./routes/auth');
-const PeriscriptionRoute = require('./routes/Perscriptions');
+const PeriscriptionRoute = require('./routes/perscriptions');
 const homeRoute = require('./routes/home');
 //connect to the db 
 mongoose.connect(process.env.DB_CONNECT1, () => 
