@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 //const {UserSchema} = require('../model/User');
 const verify = require('./verifyToken');
-const Dates = require('../model/dates');
 const Doctor = require('../model/doctor');
 const Hospital = require('../model/hospital');
 

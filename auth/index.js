@@ -11,6 +11,9 @@ dotenv.config({path: './routes/.env'});
 const authRoute = require('./routes/auth');
 const PeriscriptionRoute = require('./routes/perscriptions');
 const homeRoute = require('./routes/home');
+const diagnosisRoute = require('./routes/diagnosis');
+const AppointmentRoute = require('./routes/appointments');
+
 //connect to the db 
 mongoose.connect(process.env.DB_CONNECT1, () => 
 console.log('connected to the db '));
@@ -21,7 +24,11 @@ app.use(express.json());
 
 app.use('/mydoctor',homeRoute);
 app.use('/mydoctor/user',authRoute);
-app.use('/mydoctor/Perscriptions',PeriscriptionRoute);
+app.use('/mydoctor/perscriptions',PeriscriptionRoute);
+app.use('/mydoctor/diagnosis',diagnosisRoute);
+app.use('/mydoctor/appointments',AppointmentRoute);
+
+
 
 
 

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const HospitalSchema = new mongoose.Schema({
     
-    hospital_id : {//τηλ Νοσοκομείου;; 
+    hospital_id : {
         type: String,
         required: true,
         min: 6,
@@ -29,4 +29,4 @@ const HospitalSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Hospital',HospitalSchema);
+module.exports = mongoose.model('hospital',HospitalSchema);

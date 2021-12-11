@@ -13,12 +13,18 @@ const DoctorSchema = new mongoose.Schema({
         min: 5,
         max: 255
     },
+    password_doc:{
+        type: String,
+        required: true,
+        min: 5,
+        max: 255
+    },
     medic_spec : {
         type : String,
         required : true, 
         min : 6
     },
-    city_doc : {
+    hosp_name_doc : {
         type : String,
         required : true, 
         min : 3
