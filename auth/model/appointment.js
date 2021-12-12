@@ -18,15 +18,14 @@ const AppointmentSchema = new mongoose.Schema({
         required : true
     },
     appointment_month:{
-        type : Date,
-        default: Date.now(),
+        type : String,
         required : true
     },
     appointment_year:{
         type : String,
         required : true
     },
-    appointment_month:{
+    appointment_time:{
         type : String,
         required : true
     },
