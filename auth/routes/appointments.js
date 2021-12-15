@@ -58,7 +58,7 @@ router.get('/doctor',async(req,res) => {
 
 
 router.get('/date',async(req,res) => {
-const email_doc = req.body.email_doc
+const email_doc = req.query.email_doc
 const time = await appointments.find({email_doc:email_doc}).select({"appointment_day_time":1,"_id": 0});
 console.log(typeof(time));
 res.send(time.sort());
