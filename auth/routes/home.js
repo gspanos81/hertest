@@ -9,7 +9,7 @@ const { registerValidation, loginValidation,ChangePassValidation } = require('..
 
 router.get('/home',verify,async(req,res) => {
     
-    const decoded = jwt.decode(req.body.token);    //edw pairnoume to token kai to kanoume decoded
+    const decoded = jwt.decode(req.query.token);    //edw pairnoume to token kai to kanoume decoded
     const Amka_token = decoded.amka;               //pairnoume to amka mesa apo to decoded arxeio
     const amkaExist = await User.findOne({amka:Amka_token});  //to pairname sto findOne gia na vroume to amka sthn vash 
     //console.log(verify);

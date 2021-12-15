@@ -20,7 +20,6 @@ router.get('/doctor',async(req,res) => {
   const hospname_url = req.query.hospital_name
   console.log(hospname_url);
   
-    console.log(req.body.hospital_name)
     const vv = hospname_url
     const doctors_list = await doctors.find({"hosp_name_doc":vv}).select({"fullname_doc":1,"email_doc":1,"_id":0});
     res.send(doctors_list);
