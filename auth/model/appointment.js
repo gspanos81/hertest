@@ -13,26 +13,13 @@ const AppointmentSchema = new mongoose.Schema({
         type: String,
         required: true    },
         
-    appointment_day:{
+    appointment_day_time:{
         type : String,
         required : true
     },
-    appointment_month:{
-        type : String,
-        required : true
-    },
-    appointment_year:{
-        type : String,
-        required : true
-    },
-    appointment_time:{
-        type : String,
-        required : true
-    },
-
     city_doc:{
         type : String,
-        required : true
+        required : false
     }
 });
 
