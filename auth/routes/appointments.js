@@ -27,9 +27,10 @@ router.get('/doctor',async(req,res) => {
 router.get('/date',async(req,res) => {
     const pop = await appointments.aggregate(
         [
+          { $match: { email_doc: req.body.email_doc } },
           {
             $group: {
-              _id:  "$appointment_month",
+              _id:  "$appointment_day",
               counter: {
                 $sum: 1
               }
@@ -37,7 +38,14 @@ router.get('/date',async(req,res) => {
           }
         ])
     console.log(pop);
-    res.send(pop);
+    if(pop[1].counter === 2) console.log("winnnnn");
+    const tip = []
+    pop.forEach(element => {
+      if(element.counter >= 6 ) 
+      {tip.push(element)}}
+      )
+    console.log(tip)
+    res.send(tip);
     // console.log(req.body.fullname_doc)
     // const vv = req.body.fullname_doc
     // const doctors_list = await doctors.findOne({"hosp_name_doc":req.body.hospital_name});
@@ -46,4 +54,18 @@ router.get('/date',async(req,res) => {
 
 });
 
+
+router.get('/time',async(req,res) => {
+
+const date = req.body.appointment_day;
+const time = await appointments.find({"appointment_day":req.body.appointment_day});
+console.log(typeof(time));
+
+const tip = []
+time.forEach(element => {
+  tip.push(element.appointment_time)
+})
+tip.sort();
+res.json(tip);
+});
 module.exports = router;
