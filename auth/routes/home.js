@@ -17,7 +17,7 @@ router.get('/home',verify,async(req,res) => {
     //Ignore password from sending it to Front
     var userObj = amkaExist.toObject();
     delete userObj.password;
-    res.json({message: userObj });
+    res.send( userObj );
 
 });
 
