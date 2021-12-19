@@ -14,8 +14,8 @@ const registerValidation = data =>  {
       Photo : joi.string().min(6).optional(),  
       kg : joi.number().integer().positive().optional(),
       Height : joi.number().optional(),
-      Sex : joi.string().min(6).required(),
-      Personal_Doctor : joi.string().min(6).required(),
+      Sex : joi.string().min(1).required(),
+      Personal_Doctor : joi.string().min(3).required(),
       City : joi.string().min(6).optional()  
     });
 
