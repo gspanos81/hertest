@@ -10,7 +10,7 @@ const registerValidation = data =>  {
       First_Name : joi.string().min(3).required(),
       Last_Name : joi.string().min(3).required(),
       Birthday : joi.date().optional(),
-      Blood_Type : joi.string().min(6).required(),
+      Blood_Type : joi.string().min(1).required(),
       Photo : joi.string().min(6).optional(),  
       kg : joi.number().integer().positive().optional(),
       Height : joi.number().optional(),
